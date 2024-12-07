@@ -60,7 +60,6 @@ while(in_bounds(agent)):
 total = 0
 checked = set()
 for dir in traversed:
-    perpendircular = (dir + 1) % 4
     for loc in traversed[dir]:
         if loc != orig_agent and loc not in checked:
             checked.add(loc)
