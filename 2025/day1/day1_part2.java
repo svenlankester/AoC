@@ -6,7 +6,7 @@ public class day1_part2 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader("2025/day1/data.txt"));
         String line;
-        List<String> input = new ArrayList<String>();
+        List<String> input = new ArrayList<>();
 
         int max = 100;
         int curr = 50;
