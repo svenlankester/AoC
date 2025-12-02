@@ -20,11 +20,6 @@ public class day2_part2 {
     }
 
     private static boolean isInvalid(long number) {
-        String aux = String.valueOf(number);
-        int len = aux.length();
-
-        final int middle = len / 2;
-
-        return aux.matches("^(\\d+?)\\1+$");
+        return String.valueOf(number).matches("^(\\d+?)\\1+$");
     }
 }
