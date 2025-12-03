@@ -1,17 +1,15 @@
 package day3;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.*;
 
 public class day3_part2 {
-    static void main() throws Exception {
-        BufferedReader br = new BufferedReader(new FileReader("2025/day3/data.txt"));
-        String line;
+    static void main() throws IOException {
+        List<String> banks = Files.readAllLines(new File("2025/day3/data.txt").toPath(), Charset.defaultCharset());
         long total = 0;
-        List<String> banks = new ArrayList<>();
-        while ((line = br.readLine()) != null) {
-            banks.add(line);
-        }
+
 
         for (String bank : banks) {
 
