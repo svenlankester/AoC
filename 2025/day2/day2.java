@@ -7,7 +7,6 @@ import java.util.stream.LongStream;
 public class day2 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader("2025/day2/data.txt"));
-        String line;
         String[] input = br.readLine().split(",");
         long total = 0;
 
