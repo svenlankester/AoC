@@ -21,10 +21,12 @@ public class day8 {
 
         // crude assumption that no 2 items have the exact same distance, spares me from having to track individual connections
         double lastShortestDist = 0;
-        for (int i = 0; i < 1000; i ++) {
+        Box toConnect1 = null;
+        Box toConnect2 = null;
+        while(circuits.size() > 1) {
             double shortestDist = 999999999;
-            Box toConnect1 = null;
-            Box toConnect2 = null;
+            toConnect1 = null;
+            toConnect2 = null;
 
             for (Box box1 : boxes) {
                 for (Box box2 : boxes) {
@@ -45,8 +47,7 @@ public class day8 {
             mergeCircuits(toConnect1, toConnect2, circuits);
         }
         
-        List<Integer> circuitSizes = circuits.stream().map(List::size).sorted(Comparator.reverseOrder()).toList();
-        System.out.println(circuitSizes.get(0) * circuitSizes.get(1) * circuitSizes.get(2));
+        System.out.println((long) toConnect1.x * (long) toConnect2.x);
     }
     
     static void mergeCircuits(Box b1, Box b2, List<List<Box>> circuits) {
