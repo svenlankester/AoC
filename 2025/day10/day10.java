@@ -14,7 +14,7 @@ public class day10 {
         parse(input, machines);
         
         for (Machine machine : machines) {
-            total += findFewestPresses(machine, new BitSet(machine.goal.size()), 0, 10, 0);
+            total += findFewestPresses(machine, new BitSet(machine.goal.size()), 0, machine.buttons.length, 0);
         }
         
         System.out.println(total);
@@ -22,15 +22,15 @@ public class day10 {
     
     static long findFewestPresses(Machine machine, BitSet curr, int startIdx, int maxDepth, int depth) {
         if (curr.equals(machine.goal)) return depth;
-        if (depth == maxDepth) return 999999999;
-        
         int buttonCount = machine.buttons.length;
+        if ((depth == maxDepth) || (startIdx > buttonCount)) return 999999999;
+        
         long min = 999999999;
         
         for (int i = startIdx; i < buttonCount; i++) {
             BitSet temp = (BitSet) curr.clone();
             temp.xor(machine.buttons[i]);
-            long res = findFewestPresses(machine, temp, i, maxDepth, depth + 1);
+            long res = findFewestPresses(machine, temp, i + 1, maxDepth, depth + 1);
             if (res < min) min = res;
         }
         return min;
